@@ -23,7 +23,7 @@ const home = () => {
     <View style={{flex:1,backgroundColor:"#fff",padding:15}}>
       <Text style={{marginBottom:10,fontSize:20,fontWeight:"bold"}}>Book Your <Text style={{color:"#a69002"}}>Hall</Text></Text>
       <ScrollView>
-        <Link href="/booking">
+        <Link href="/detail">
           <HallCard />
         </Link>
       <HallCard />
