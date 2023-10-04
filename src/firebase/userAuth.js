@@ -19,14 +19,13 @@ export const loginWithEmailAndPassword = async(email,password)=>{
     }
 }
 
-export const registerWithEmailAndPassword = async(name,email,password)=>{
+export const registerWithEmailAndPassword = async(email,password)=>{
     try {
         const res = await createUserWithEmailAndPassword(auth,email,password)
         const user = res.user;
         const userDocRef = doc(db,"users",user.uid)
         await setDoc(userDocRef,{
             uid:user.uid,
-            name,
             email
         })
         const userRef= doc(db,"users",user.uid)

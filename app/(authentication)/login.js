@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet,Image, ToastAndroid } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet,Image } from 'react-native';
 import Logo from "../../assets/logo.png"
 import { Link, useNavigation } from 'expo-router';
 import { auth } from '../../src/firebase';
@@ -10,15 +10,17 @@ import { loginWithEmailAndPassword } from '../../src/firebase/userAuth';
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const {setCurrentUser,setIsLoggedIn} = useContext(AuthContext)
+  // const {setCurrentUser,setIsLoggedIn} = useContext(AuthContext)
   const navigation = useNavigation()
+
+
 
   const handleLogin = async () => {
     const res = await loginWithEmailAndPassword(email,password)
     if(res.success){
-      ToastAndroid.show("Logged In Successfully",ToastAndroid.BOTTOM)
-      setCurrentUser(res.user)
-      setIsLoggedIn(true)
+      // ToastAndroid.show("Logged In Successfully",ToastAndroid.BOTTOM)
+      // setCurrentUser(res.user)
+      // setIsLoggedIn(true)
       navigation.navigate('(tabs)',{Screen:'(home)'})
     }
   };
